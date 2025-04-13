@@ -1,18 +1,22 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Animal {
     private String name; // кличка
     private LocalDate birthDate; // дата рождения
     private int age; // возраст 
     private String gender; // пол
+    private List<String> learnedCommands; // список выученных команд
 
     public Animal(String name, LocalDate birthDate, int age, String gender) {
         this.name = name;
         this.birthDate = birthDate;
         this.age = age;
         this.gender = gender;
+        this.learnedCommands = new ArrayList<>();
     }
 
     public String getName() {
@@ -47,6 +51,24 @@ public class Animal {
         this.gender = gender;
     }
 
+    public List<String> getLearnedCommands() {
+        return learnedCommands;
+    }
+
+    public void addCommand(String command) {
+        if (!learnedCommands.contains(command)) {
+            learnedCommands.add(command);
+        }
+    }
+
+    public void removeCommand(String command) {
+        learnedCommands.remove(command);
+    }
+
+    public boolean knowsCommand(String command) {
+        return learnedCommands.contains(command);
+    }
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -54,6 +76,7 @@ public class Animal {
                 ", birthDate='" + birthDate + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", learnedCommands=" + learnedCommands +
                 '}';
     }
 } 

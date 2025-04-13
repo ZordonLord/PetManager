@@ -1,18 +1,15 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Dogs extends Pets {
     private String size; // размер
-    private List<String> learnedCommands; // список выученных команд
 
     public Dogs(String name, LocalDate birthDate, int age, String gender, String breed, boolean isVaccinated, 
                 String size) {
         super(name, birthDate, age, gender, breed, isVaccinated);
         this.size = size;
-        this.learnedCommands = new ArrayList<>();
     }
 
     public String getSize() {
@@ -21,24 +18,6 @@ public class Dogs extends Pets {
 
     public void setSize(String size) {
         this.size = size;
-    }
-
-    public List<String> getLearnedCommands() {
-        return learnedCommands;
-    }
-
-    public void addCommand(String command) {
-        if (!learnedCommands.contains(command)) {
-            learnedCommands.add(command);
-        }
-    }
-
-    public void removeCommand(String command) {
-        learnedCommands.remove(command);
-    }
-
-    public boolean knowsCommand(String command) {
-        return learnedCommands.contains(command);
     }
 
     @Override
@@ -51,7 +30,7 @@ public class Dogs extends Pets {
                 ", breed='" + getBreed() + '\'' +
                 ", isVaccinated=" + isVaccinated() +
                 ", size='" + size + '\'' +
-                ", learnedCommands=" + learnedCommands +
+                ", learnedCommands=" + getLearnedCommands() +
                 '}';
     }
 } 
