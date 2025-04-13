@@ -6,14 +6,12 @@ import java.util.List;
 
 public class Dogs extends Pets {
     private String size; // размер
-    private boolean isTrained; // обучен ли
     private List<String> learnedCommands; // список выученных команд
 
     public Dogs(String name, LocalDate birthDate, int age, String gender, String breed, boolean isVaccinated, 
-                String size, boolean isTrained) {
+                String size) {
         super(name, birthDate, age, gender, breed, isVaccinated);
         this.size = size;
-        this.isTrained = isTrained;
         this.learnedCommands = new ArrayList<>();
     }
 
@@ -23,14 +21,6 @@ public class Dogs extends Pets {
 
     public void setSize(String size) {
         this.size = size;
-    }
-
-    public boolean isTrained() {
-        return isTrained;
-    }
-
-    public void setTrained(boolean trained) {
-        isTrained = trained;
     }
 
     public List<String> getLearnedCommands() {
@@ -61,7 +51,6 @@ public class Dogs extends Pets {
                 ", breed='" + getBreed() + '\'' +
                 ", isVaccinated=" + isVaccinated() +
                 ", size='" + size + '\'' +
-                ", isTrained=" + isTrained +
                 ", learnedCommands=" + learnedCommands +
                 '}';
     }
