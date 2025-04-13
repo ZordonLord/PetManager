@@ -8,8 +8,8 @@ public class PackAnimals extends Animal {
 
     public PackAnimals(String name, LocalDate birthDate, int age, String gender, double speed, double carryingCapacity) {
         super(name, birthDate, age, gender);
-        this.speed = speed;
-        this.carryingCapacity = carryingCapacity;
+        this.speed = speed; // скорость
+        this.carryingCapacity = carryingCapacity; // грузоподъемность
     }
 
     public double getSpeed() {

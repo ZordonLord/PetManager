@@ -8,8 +8,8 @@ public class Pets extends Animal {
 
     public Pets(String name, LocalDate birthDate, int age, String gender, String breed, boolean isVaccinated) {
         super(name, birthDate, age, gender);
-        this.breed = breed;
-        this.isVaccinated = isVaccinated;
+        this.breed = breed; // порода
+        this.isVaccinated = isVaccinated; // вакцинирован ли
     }
 
     public String getBreed() {

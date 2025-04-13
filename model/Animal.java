@@ -3,10 +3,10 @@ package model;
 import java.time.LocalDate;
 
 public class Animal {
-    private String name;
-    private LocalDate birthDate;
-    private int age;
-    private String gender;
+    private String name; // кличка
+    private LocalDate birthDate; // дата рождения
+    private int age; // возраст 
+    private String gender; // пол
 
     public Animal(String name, LocalDate birthDate, int age, String gender) {
         this.name = name;
