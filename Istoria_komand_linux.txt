@@ -1,0 +1,19 @@
+cat > Pets
+cat > Pack_Animals
+cat Pets Pack_Animals > AllAnimals
+cat AllAnimals
+mv AllAnimals Human_Friends
+
+mkdir animals_list
+mv Human_Friends animals_list/
+
+sudo apt update
+sudo apt install mysql-server
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.17-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+sudo apt update
+sudo apt install mysql-server
+
+wget https://download.docker.com/linux/debian/dists/bookworm/pool/stable/amd64/containerd.io_1.6.16-1_amd64.deb
+sudo dpkg -i containerd.io_1.6.16-1_amd64.deb
+sudo dpkg -r containerd.io
