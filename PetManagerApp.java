@@ -13,7 +13,8 @@ public class PetManagerApp {
                 System.out.println("3. Показать команды животного");
                 System.out.println("4. Обучить животное новой команде");
                 System.out.println("5. Показать животных по дате рождения");
-                System.out.println("6. Выход");
+                System.out.println("6. Показать статистику животных");
+                System.out.println("7. Выход");
                 
                 int choice = scanner.nextInt();
                 scanner.nextLine();
@@ -35,6 +36,9 @@ public class PetManagerApp {
                         registry.printAnimalsByBirthDate();
                         break;
                     case 6:
+                        registry.printAnimalStatistics();
+                        break;
+                    case 7:
                         System.exit(0);
                         break;
                     default:

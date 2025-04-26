@@ -18,10 +18,12 @@ public class AnimalRegistry {
     private List<Animal> animals;
     private Scanner scanner;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private Counter animalCounter;
 
     public AnimalRegistry() {
         this.animals = new ArrayList<>();
         this.scanner = new Scanner(System.in, "cp866");
+        this.animalCounter = new Counter();
     }
 
     private int getIntInput(String prompt) {
@@ -65,7 +67,7 @@ public class AnimalRegistry {
     }
 
     public void addNewAnimal() {
-        try {
+        try (Counter counter = new Counter()) {
             System.out.println("Выберите тип животного:");
             System.out.println("1. Собака");
             System.out.println("2. Кошка");
@@ -144,6 +146,8 @@ public class AnimalRegistry {
             }
 
             animals.add(animal);
+            counter.add();
+            animalCounter.add();
             System.out.println("Животное успешно добавлено в реестр!");
         } catch (Exception e) {
             System.out.println("Произошла ошибка при добавлении животного: " + e.getMessage());
@@ -236,6 +240,104 @@ public class AnimalRegistry {
             Animal animal = sortedAnimals.get(i);
             System.out.println((i + 1) + ". " + animal.toString() + 
                              " (Дата рождения: " + animal.getBirthDate().format(DATE_FORMATTER) + ")");
+        }
+    }
+
+    public void printAnimalStatistics() {
+        System.out.println("\nСтатистика по животным:");
+        System.out.println("Общее количество животных: " + animalCounter.getCount());
+        
+        int domesticCount = 0;
+        int packCount = 0;
+        int dogsCount = 0;
+        int catsCount = 0;
+        int hamstersCount = 0;
+        int horsesCount = 0;
+        int camelsCount = 0;
+        int donkeysCount = 0;
+        
+        for (Animal animal : animals) {
+            if (animal instanceof Dogs) {
+                dogsCount++;
+                domesticCount++;
+            } else if (animal instanceof Cats) {
+                catsCount++;
+                domesticCount++;
+            } else if (animal instanceof Hamsters) {
+                hamstersCount++;
+                domesticCount++;
+            } else if (animal instanceof Horses) {
+                horsesCount++;
+                packCount++;
+            } else if (animal instanceof Camels) {
+                camelsCount++;
+                packCount++;
+            } else if (animal instanceof Donkeys) {
+                donkeysCount++;
+                packCount++;
+            }
+        }
+        
+        System.out.println("\nВыберите тип статистики:");
+        System.out.println("1. Общая статистика");
+        System.out.println("2. Домашние животные");
+        System.out.println("3. Вьючные животные");
+        System.out.println("4. Собаки");
+        System.out.println("5. Кошки");
+        System.out.println("6. Хомяки");
+        System.out.println("7. Лошади");
+        System.out.println("8. Верблюды");
+        System.out.println("9. Ослы");
+        
+        int choice = getIntInput("Введите номер типа статистики:");
+        
+        switch (choice) {
+            case 1:
+                System.out.println("\nОбщая статистика:");
+                System.out.println("Общее количество животных: " + animalCounter.getCount());
+                System.out.println("Домашние животные: " + domesticCount);
+                System.out.println("Вьючные животные: " + packCount);
+                break;
+            case 2:
+                System.out.println("\nСтатистика по домашним животным:");
+                System.out.println("Собаки: " + dogsCount);
+                System.out.println("Кошки: " + catsCount);
+                System.out.println("Хомяки: " + hamstersCount);
+                System.out.println("Всего домашних животных: " + domesticCount);
+                break;
+            case 3:
+                System.out.println("\nСтатистика по вьючным животным:");
+                System.out.println("Лошади: " + horsesCount);
+                System.out.println("Верблюды: " + camelsCount);
+                System.out.println("Ослы: " + donkeysCount);
+                System.out.println("Всего вьючных животных: " + packCount);
+                break;
+            case 4:
+                System.out.println("\nСтатистика по собакам:");
+                System.out.println("Количество собак: " + dogsCount);
+                break;
+            case 5:
+                System.out.println("\nСтатистика по кошкам:");
+                System.out.println("Количество кошек: " + catsCount);
+                break;
+            case 6:
+                System.out.println("\nСтатистика по хомякам:");
+                System.out.println("Количество хомяков: " + hamstersCount);
+                break;
+            case 7:
+                System.out.println("\nСтатистика по лошадям:");
+                System.out.println("Количество лошадей: " + horsesCount);
+                break;
+            case 8:
+                System.out.println("\nСтатистика по верблюдам:");
+                System.out.println("Количество верблюдов: " + camelsCount);
+                break;
+            case 9:
+                System.out.println("\nСтатистика по ослам:");
+                System.out.println("Количество ослов: " + donkeysCount);
+                break;
+            default:
+                System.out.println("Неверный выбор!");
         }
     }
 } 
