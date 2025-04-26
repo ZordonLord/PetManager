@@ -166,4 +166,57 @@ public class AnimalRegistry {
             System.out.println((i + 1) + ". " + animal.toString());
         }
     }
+
+    public void showAnimalCommands() {
+        if (animals.isEmpty()) {
+            System.out.println("В реестре нет животных.");
+            return;
+        }
+
+        printAllAnimals();
+        int animalIndex = getIntInput("Введите номер животного, чьи команды хотите посмотреть:") - 1;
+
+        if (animalIndex < 0 || animalIndex >= animals.size()) {
+            System.out.println("Неверный номер животного!");
+            return;
+        }
+
+        Animal animal = animals.get(animalIndex);
+        List<String> commands = animal.getLearnedCommands();
+
+        if (commands.isEmpty()) {
+            System.out.println("У этого животного нет выученных команд.");
+        } else {
+            System.out.println("\nСписок выученных команд животного " + animal.getName() + ":");
+            for (int i = 0; i < commands.size(); i++) {
+                System.out.println((i + 1) + ". " + commands.get(i));
+            }
+        }
+    }
+
+    public void teachNewCommand() {
+        if (animals.isEmpty()) {
+            System.out.println("В реестре нет животных.");
+            return;
+        }
+
+        printAllAnimals();
+        int animalIndex = getIntInput("Введите номер животного, которого хотите обучить:") - 1;
+
+        if (animalIndex < 0 || animalIndex >= animals.size()) {
+            System.out.println("Неверный номер животного!");
+            return;
+        }
+
+        Animal animal = animals.get(animalIndex);
+        System.out.println("Введите новую команду для животного " + animal.getName() + ":");
+        String newCommand = scanner.nextLine();
+
+        if (animal.knowsCommand(newCommand)) {
+            System.out.println("Животное уже знает эту команду!");
+        } else {
+            animal.addCommand(newCommand);
+            System.out.println("Команда успешно добавлена!");
+        }
+    }
 } 

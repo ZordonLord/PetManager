@@ -10,7 +10,9 @@ public class PetManagerApp {
                 System.out.println("\nМеню:");
                 System.out.println("1. Добавить новое животное");
                 System.out.println("2. Показать всех животных");
-                System.out.println("3. Выход");
+                System.out.println("3. Показать команды животного");
+                System.out.println("4. Обучить животное новой команде");
+                System.out.println("5. Выход");
                 
                 int choice = scanner.nextInt();
                 scanner.nextLine();
@@ -23,6 +25,12 @@ public class PetManagerApp {
                         registry.printAllAnimals();
                         break;
                     case 3:
+                        registry.showAnimalCommands();
+                        break;
+                    case 4:
+                        registry.teachNewCommand();
+                        break;
+                    case 5:
                         System.exit(0);
                         break;
                     default:
