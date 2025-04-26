@@ -219,4 +219,23 @@ public class AnimalRegistry {
             System.out.println("Команда успешно добавлена!");
         }
     }
+
+    public void printAnimalsByBirthDate() {
+        if (animals.isEmpty()) {
+            System.out.println("В реестре нет животных.");
+            return;
+        }
+        
+        // Создаем копию списка для сортировки
+        List<Animal> sortedAnimals = new ArrayList<>(animals);
+        // Сортируем по дате рождения
+        sortedAnimals.sort((a1, a2) -> a1.getBirthDate().compareTo(a2.getBirthDate()));
+        
+        System.out.println("\nСписок животных, отсортированный по дате рождения:");
+        for (int i = 0; i < sortedAnimals.size(); i++) {
+            Animal animal = sortedAnimals.get(i);
+            System.out.println((i + 1) + ". " + animal.toString() + 
+                             " (Дата рождения: " + animal.getBirthDate().format(DATE_FORMATTER) + ")");
+        }
+    }
 } 
