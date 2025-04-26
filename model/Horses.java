@@ -21,14 +21,7 @@ public class Horses extends PackAnimals {
 
     @Override
     public String toString() {
-        return "Horses{" +
-                "name='" + getName() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                ", age=" + getAge() +
-                ", gender='" + getGender() + '\'' +
-                ", speed=" + getSpeed() +
-                ", carryingCapacity=" + getCarryingCapacity() +
-                ", color='" + color + '\'' +
-                '}';
+        return String.format("Лошадь {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                getName(), getBirthDate(), getAge(), getGender(), getLearnedCommands());
     }
 } 

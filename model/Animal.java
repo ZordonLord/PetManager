@@ -71,12 +71,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", learnedCommands=" + learnedCommands +
-                '}';
+        return String.format("Животное {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                name, birthDate, age, gender, learnedCommands);
     }
 } 

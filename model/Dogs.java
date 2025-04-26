@@ -22,15 +22,7 @@ public class Dogs extends Pets {
 
     @Override
     public String toString() {
-        return "Dogs{" +
-                "name='" + getName() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                ", age=" + getAge() +
-                ", gender='" + getGender() + '\'' +
-                ", breed='" + getBreed() + '\'' +
-                ", isVaccinated=" + isVaccinated() +
-                ", size='" + size + '\'' +
-                ", learnedCommands=" + getLearnedCommands() +
-                '}';
+        return String.format("Собака {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                getName(), getBirthDate(), getAge(), getGender(), getLearnedCommands());
     }
 } 

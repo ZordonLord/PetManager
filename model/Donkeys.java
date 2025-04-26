@@ -21,14 +21,7 @@ public class Donkeys extends PackAnimals {
 
     @Override
     public String toString() {
-        return "Donkeys{" +
-                "name='" + getName() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                ", age=" + getAge() +
-                ", gender='" + getGender() + '\'' +
-                ", speed=" + getSpeed() +
-                ", carryingCapacity=" + getCarryingCapacity() +
-                ", isStubborn=" + isStubborn +
-                '}';
+        return String.format("Осёл {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                getName(), getBirthDate(), getAge(), getGender(), getLearnedCommands());
     }
 } 

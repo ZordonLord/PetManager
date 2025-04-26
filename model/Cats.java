@@ -31,15 +31,7 @@ public class Cats extends Pets {
 
     @Override
     public String toString() {
-        return "Cats{" +
-                "name='" + getName() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                ", age=" + getAge() +
-                ", gender='" + getGender() + '\'' +
-                ", breed='" + getBreed() + '\'' +
-                ", isVaccinated=" + isVaccinated() +
-                ", isIndoor=" + isIndoor +
-                ", furType='" + furType + '\'' +
-                '}';
+        return String.format("Кошка {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                getName(), getBirthDate(), getAge(), getGender(), getLearnedCommands());
     }
 } 

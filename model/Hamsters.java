@@ -31,15 +31,7 @@ public class Hamsters extends Pets {
 
     @Override
     public String toString() {
-        return "Hamsters{" +
-                "name='" + getName() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                ", age=" + getAge() +
-                ", gender='" + getGender() + '\'' +
-                ", breed='" + getBreed() + '\'' +
-                ", isVaccinated=" + isVaccinated() +
-                ", color='" + color + '\'' +
-                ", isNocturnal=" + isNocturnal +
-                '}';
+        return String.format("Хомяк {кличка='%s', дата рождения='%s', возраст=%d, пол='%s', выученные команды=%s}",
+                getName(), getBirthDate(), getAge(), getGender(), getLearnedCommands());
     }
 } 
