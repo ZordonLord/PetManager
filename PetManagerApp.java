@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class PetManagerApp {
     public static void main(String[] args) {
         AnimalRegistry registry = new AnimalRegistry();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, "cp866");
         
         try {
             while (true) {

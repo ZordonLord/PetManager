@@ -21,7 +21,7 @@ public class AnimalRegistry {
 
     public AnimalRegistry() {
         this.animals = new ArrayList<>();
-        this.scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in, "cp866");
     }
 
     private int getIntInput(String prompt) {
